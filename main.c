@@ -39,7 +39,7 @@ void select_player()
 
 void banner()
 {
-    printf("\n TIC - TAC - TOE \n%s", DASH); // title
+    printf("\n TIC - TAC - TOE \n%s", DASH);
     select_player();
     printf("%s\n %c: Player 1 \n %c: Player 2 or Computer \n%s", DASH, game.player_1, game.player_2, DASH);
 }
@@ -60,16 +60,16 @@ void result(int r)
 
 {
     (r != 0) ? printf("\n %c IS THE WINNER!", ((sign(r) == game.player_1) ? game.player_1 : game.player_2))
-             : printf("\n DRAW!"); // to console
+             : printf("\n DRAW!");
     if (!game.logs)
         ERROR;
     else
         (r != 0) ? fprintf(game.logs, "\n%c IS THE WINNER!", ((sign(r) == game.player_1) ? game.player_1 : game.player_2))
-                 : fprintf(game.logs, "\nDRAW!"); // to text file
+                 : fprintf(game.logs, "\nDRAW!");
 }
 
 int win(int p[9]){
-    int chance[8][3] = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}, {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, {0, 4, 8}, {2, 4, 6}}; // winning patterns
+    int chance[8][3] = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}, {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, {0, 4, 8}, {2, 4, 6}};
     for (int i = 0; i < 8; i++)
         if (p[chance[i][0]] != 0 && p[chance[i][0]] == p[chance[i][1]] && p[chance[i][0]] == p[chance[i][2]])
             return p[chance[i][0]];
